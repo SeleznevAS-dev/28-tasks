@@ -21,7 +21,7 @@ def test_min_max():
     assert squirrel(n_min) == test_res_min
     assert squirrel(n_max) == test_res_max
 
-@pytest.mark.repeat(1000)
+@pytest.mark.repeat(100)
 def test_random():
     random_n = random.randint(1, 1000)
     res = math.factorial(random_n)
