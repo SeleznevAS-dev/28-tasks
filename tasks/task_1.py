@@ -4,3 +4,4 @@ def squirrel(N: int) -> int:
         num *= i
     ans = int(str(num)[0])
     return ans
+
