@@ -10,3 +10,10 @@ def MadMax(N: int, Tele: list[int]) -> list[int]:
         countdown += 1
     return ans
 
+# Modified version
+# def MadMax(N: int, Tele: list[int]) -> list[int]:
+#     Tele.sort()
+#     ans = Tele[: N // 2]
+#     ans.extend(Tele[: N // 2 - 1 : -1])
+#     return ans
+
