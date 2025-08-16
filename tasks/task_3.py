@@ -1,14 +1,15 @@
 def ConquestCampaign(N: int, M: int, L: int, battalion: list[int]) -> int:
     field = []
-    cords = 0
     for i in range(N):
         field.append([])
         for j in range(M):
-            if battalion[cords] - 1 == i and battalion[cords + 1] - 1 == j:
-                field[i].append(1)
-                cords += 2
-            else:
-                field[i].append(0)
+            field[i].append(0)
+
+    for k in range(L):
+        i = battalion[(k * 2)]
+        j = battalion[(k * 2) + 1]
+        field[i - 1][j - 1] = 1
+
     ans = 1
     while True:
         done = 0
