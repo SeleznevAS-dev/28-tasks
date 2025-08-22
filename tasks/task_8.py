@@ -7,4 +7,5 @@ def SumOfThe(N: int, data: list[int]) -> int:
             sm += potential_sums[j]
         if sm == potential_sum:
             return sm
+    return 0
 
