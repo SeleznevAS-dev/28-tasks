@@ -7,6 +7,9 @@ def MassVote(N: int, Votes: list[int]) -> str:
     winner1 = max(winners, key=winners.get)
     percent1 = winners.get(winner1)
     winners.pop(winner1)
+    if winners == {}:
+        return f"majority winner {winner1}"
+
     winner2 = max(winners, key=winners.get)
     percent2 = winners.get(winner2)
     final_winner = ""
