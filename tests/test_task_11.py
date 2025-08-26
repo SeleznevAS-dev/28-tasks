@@ -19,5 +19,4 @@ def test_regression2():
 def test_random():
     test_s1 = str(randint(1, 1000))
     test_s2 = str(randint(1, 1000))
-    print(test_s1, test_s2)
     assert BigMinus(test_s1, test_s2) == str(abs(int(test_s1) - int(test_s2)))
