@@ -12,7 +12,7 @@ def MassVote(N: int, Votes: list[int]) -> str:
     final_winner = ""
     if percent1 == percent2:
         final_winner = "no winner"
-    elif percent1 >= 0.5:
+    elif percent1 > 0.5:
         final_winner = f"majority winner {winner1}"
     elif percent1 <= 0.5:
         final_winner = f"minority winner {winner1}"
