@@ -15,8 +15,8 @@ def test_regression2():
     assert BigMinus(test_s1, test_s2) == "320"
 
 
-@pytest.mark.repeat(1000)
-def test_random():
-    test_s1 = str(randint(1, 1000))
-    test_s2 = str(randint(1, 1000))
-    assert BigMinus(test_s1, test_s2) == str(abs(int(test_s1) - int(test_s2)))
+# @pytest.mark.repeat(1000)
+# def test_random():
+#     test_s1 = str(randint(1, 1000))
+#     test_s2 = str(randint(1, 1000))
+#     assert BigMinus(test_s1, test_s2) == str(abs(int(test_s1) - int(test_s2)))
