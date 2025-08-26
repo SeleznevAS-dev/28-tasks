@@ -17,3 +17,9 @@ def test_regression3():
     test_N = 4
     test_Votes = [111, 111, 110, 110]
     assert MassVote(test_N, test_Votes) == "no winner"
+
+
+def test_regression4():
+    test_N = 1
+    test_Votes = [100]
+    assert MassVote(test_N, test_Votes) == "majority winner 1"
