@@ -8,7 +8,7 @@ def Unmanned(L: int, N: int, track: list[list[int]]) -> int:
         )  # current cycle, rest of cycle red, rest of cycle green,
     i = 0
     while True:
-        if lights_passed == len(track):
+        if lights_passed == len(track) or distance >= L:
             break
         for j in range(N):
             if states[j][0] == 0 and states[j][1] == 0:
