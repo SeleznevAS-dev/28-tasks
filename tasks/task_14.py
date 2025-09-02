@@ -13,12 +13,14 @@ def Unmanned(L: int, N: int, track: list[list[int]]) -> int:
         for j in range(N):
             if states[j][0] == 0 and states[j][1] == 0:
                 states[j][0] = 1
-                states[j][1] = track[j][1] - 1
+                states[j][1] = track[j][1]
+                states[j][2] = track[j][2] - 1
             elif states[j][0] == 0:
                 states[j][1] -= 1
             elif states[j][0] == 1 and states[j][2] == 0:
                 states[j][0] = 0
-                states[j][2] = track[j][2] - 1
+                states[j][2] = track[j][2]
+                states[j][1] = track[j][1] - 1
             elif states[j][0] == 1:
                 states[j][2] -= 1
         if distance == track[lights_passed][0] and states[lights_passed][0] == 1:
