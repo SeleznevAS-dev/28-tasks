@@ -27,7 +27,9 @@ def TankRush(H1: int, W1: int, S1: str, H2: int, W2: int, S2: str) -> bool:
                 return True
 
             elif len(indexes) == 2:
-                seq = [i + 1, H1 - H2 + 2]
+                seq = []
+                for new_seq in range(i + 1, H1 - H2 + 3):
+                    seq.append(new_seq)
                 for index, n in enumerate(seq, start=1):
                     line1_check = arr1[n]
                     line2_check = arr2[index]
