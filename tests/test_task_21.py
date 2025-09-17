@@ -7,3 +7,4 @@ def test_regression():
     assert BiggerGreater("нклм") == "нкмл"
     assert BiggerGreater("вибк") == "викб"
     assert BiggerGreater("вкиб") == "ибвк"
+    assert BiggerGreater("za") == ""
