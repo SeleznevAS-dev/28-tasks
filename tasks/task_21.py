@@ -6,9 +6,10 @@ def BiggerGreater(input: str) -> str:
         if input_arr[i] > input_arr[i - 1]:
             break
 
-    mn = min(
-        list(filter(lambda x: x >= input_arr[i - 1], input_arr[i : len(input_arr)]))
-    )
+    arr = list(filter(lambda x: x >= input_arr[i - 1], input_arr[i : len(input_arr)]))
+    if arr == []:
+        return ""
+    mn = min(arr)
 
     input_arr[input_arr.index(mn, i, len(input_arr))], input_arr[i - 1] = (
         input_arr[i - 1],
