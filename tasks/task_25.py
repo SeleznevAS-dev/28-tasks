@@ -3,8 +3,8 @@ def Transform(A: list[int], N: int) -> list:
     for i in range(N):
         for j in range(N - i):
             k = i + j
-            if A[j:k] != []:
-                B.append(max(A[j:k]))
+            if A[j : k + 1] != []:
+                B.append(max(A[j : k + 1]))
     return B
 
 
