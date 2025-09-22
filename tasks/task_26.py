@@ -17,4 +17,5 @@ def white_walkers(village: str) -> bool:
             list(village[digits_indexes[i] : digits_indexes[i + 1]]).count("=") != 3
         ):
             result = False
+            break
     return result
