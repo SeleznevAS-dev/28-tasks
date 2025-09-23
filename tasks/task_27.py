@@ -1,23 +1,18 @@
-def sort_arr(arr: list[int], n: int) -> list[int]:
-    res = []
-    for _ in range(n):
-        mn = min(arr)
-        res.append(mn)
-        arr.remove(mn)
-    return res
+def check_is_valid(F: list[int], N: int) -> list[int]:
+    wrong_positions = []
+    for i in range(N - 1):
+        if F[i] > F[i + 1] and i not in wrong_positions:
+            wrong_positions.append(i)
+            wrong_positions.append(i + 1)
+    return wrong_positions
 
 
 def Football(F: list[int], N: int) -> bool:
-    arr_to_sort = F.copy()
-    sorted_arr = sort_arr(arr_to_sort, N)
-    wrong_positions = []
-    for i in range(N):
-        if F[i] != sorted_arr[i]:
-            wrong_positions.append(i)
-    can_sort = False
-    if (len(wrong_positions) == 2) or (
-        F[wrong_positions[0] : wrong_positions[-1] + 1][::-1]
-        == sorted_arr[wrong_positions[0] : wrong_positions[-1] + 1]
-    ):
-        can_sort = True
-    return can_sort
+    arr = check_is_valid(F, N)
+    can_make_valid = False
+    if len(arr) == 2:
+        can_make_valid = True
+    elif len(check_is_valid(F[arr[0] : arr[-1] + 1][::-1], len(arr))) == 0:
+        can_make_valid = True
+
+    return can_make_valid
