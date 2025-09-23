@@ -10,7 +10,9 @@ def check_is_valid(F: list[int], N: int) -> list[int]:
 def Football(F: list[int], N: int) -> bool:
     arr = check_is_valid(F, N)
     can_make_valid = False
-    if len(arr) == 2:
+    if len(arr) == 0:
+        can_make_valid = False
+    elif len(arr) == 2:
         can_make_valid = True
     elif len(check_is_valid(F[arr[0] : arr[-1] + 1][::-1], len(arr))) == 0:
         can_make_valid = True
