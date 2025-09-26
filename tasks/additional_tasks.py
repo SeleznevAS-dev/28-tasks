@@ -28,14 +28,14 @@ def list_len(arr: list) -> int:
 
 
 # 4.
-def is_palindrome(string: str) -> bool:
-    if len(string) > 2 and not is_palindrome(string[1:-1]):
+def is_palindrome(string: str, N: int) -> bool:
+    if N > 2 and not is_palindrome(string, N - 2):
         return False
 
     ans = False
-    if (string[0] == string[-1]) or len(string) == 1:
+    if (string[N - 1] == string[-N]) or N == 1:
         ans = True
-    elif string[0] != string[-1]:
+    elif string[N - 1] != string[-N]:
         ans = False
 
     return ans
