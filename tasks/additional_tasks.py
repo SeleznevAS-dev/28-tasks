@@ -28,15 +28,20 @@ def list_len(arr: list) -> int:
 
 
 # 4.
-def is_palindrome(string: str) -> bool:
+def check_is_palindrome_recursive(string: str, N: int) -> bool:
+    if N > 2 and not check_is_palindrome_recursive(string, N - 2):
+        return False
+
     ans = False
-    if (string[0] == string[-1]) or len(string) == 1:
+    if (string[N - 1] == string[-N]) or N == 1:
         ans = True
-    elif string[0] != string[-1]:
+    elif string[N - 1] != string[-N]:
         ans = False
 
-    if len(string) > 2 and ans is True:
-        string = string[1:-1]
-        return is_palindrome(string)
+    return ans
+
+
+def is_palindrome(string: str) -> bool:
+    ans = check_is_palindrome_recursive(string, len(string))
 
     return ans
