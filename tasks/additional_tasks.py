@@ -29,7 +29,7 @@ def list_len(arr: list) -> int:
 
 # 4.
 def check_is_palindrome_recursive(string: str, N: int) -> bool:
-    if N <= 2 and (string[N - 1] == string[-N] or N == 1):
+    if N == 1 or (string[N - 1] == string[-N] and N < 3):
         return True
     elif string[N - 1] != string[-N]:
         return False
