@@ -26,7 +26,7 @@ def test_regression_3():
 
 
 def test_regression_4():
-    assert is_palindrome("aba", 3) is True
-    assert is_palindrome("abc", 3) is False
-    assert is_palindrome("abccba", 6) is True
-    assert is_palindrome("abccbb", 6) is False
+    assert is_palindrome("aba") is True
+    assert is_palindrome("abc") is False
+    assert is_palindrome("abccba") is True
+    assert is_palindrome("abccbb") is False
