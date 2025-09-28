@@ -29,16 +29,12 @@ def list_len(arr: list) -> int:
 
 # 4.
 def check_is_palindrome_recursive(string: str, N: int) -> bool:
-    if N > 2 and not check_is_palindrome_recursive(string, N - 2):
+    if N <= 2 and (string[N - 1] == string[-N] or N == 1):
+        return True
+    elif string[N - 1] != string[-N]:
         return False
 
-    ans = False
-    if (string[N - 1] == string[-N]) or N == 1:
-        ans = True
-    elif string[N - 1] != string[-N]:
-        ans = False
-
-    return ans
+    return check_is_palindrome_recursive(string, N - 2)
 
 
 def is_palindrome(string: str) -> bool:
