@@ -42,6 +42,4 @@ def check_is_palindrome_recursive(string: str, N: int) -> bool:
 
 
 def is_palindrome(string: str) -> bool:
-    ans = check_is_palindrome_recursive(string, len(string))
-
-    return ans
+    return check_is_palindrome_recursive(string, len(string))
