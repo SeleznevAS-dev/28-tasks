@@ -43,19 +43,23 @@ def is_palindrome(string: str) -> bool:
 
 # 5.
 def print_only_odd_nums(arr: list[int]) -> None:
+    num = arr.pop()
+    if num % 2 == 0:
+        print(num)
     if arr == []:
         return
-    if arr[-1] % 2 == 0:
-        print(arr[-1])
-    arr.pop()
+
     return print_only_odd_nums(arr)
 
 
 # 6.
 def print_only_odd_indexes(arr: list[int]) -> None:
+    if len(arr) % 2 == 0:
+        arr.pop()
+
+    print(arr.pop())
     if arr == []:
         return
-    if len(arr) % 2 == 1:
-        print(arr[-1])
     arr.pop()
+
     return print_only_odd_indexes(arr)
