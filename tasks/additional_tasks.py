@@ -43,33 +43,29 @@ def is_palindrome(string: str) -> bool:
 
 # 5.
 def print_only_odd_nums_recursive(arr: list[int], N: int) -> None:
-    if N == 0:
+    if N >= len(arr):
         return
 
     num = arr[N]
     if num % 2 == 0:
         print(num)
 
-    return print_only_odd_nums_recursive(arr, N - 1)
+    return print_only_odd_nums_recursive(arr, N + 1)
 
 
 def print_only_odd_nums(arr: list[int]) -> None:
-    return print_only_odd_nums_recursive(arr, len(arr) - 1)
+    return print_only_odd_nums_recursive(arr, 0)
 
 
 # 6.
 def print_only_odd_indexes_recursive(arr: list[int], N: int) -> None:
-    if N < 0:
+    if N >= len(arr):
         return
 
     print(arr[N])
 
-    return print_only_odd_indexes_recursive(arr, N - 2)
+    return print_only_odd_indexes_recursive(arr, N + 2)
 
 
 def print_only_odd_indexes(arr: list[int]) -> None:
-    N = len(arr) - 1
-
-    if N % 2 == 1:
-        N -= 1
-    return print_only_odd_indexes_recursive(arr, N)
+    return print_only_odd_indexes_recursive(arr, 0)
