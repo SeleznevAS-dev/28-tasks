@@ -1,8 +1,12 @@
+import pytest
+import random
+
 from tasks.additional_tasks import factorial
 from tasks.additional_tasks import power
 from tasks.additional_tasks import sum_numbers
 from tasks.additional_tasks import list_len
 from tasks.additional_tasks import is_palindrome
+from tasks.additional_tasks import find_second_max
 
 
 def test_regression_0():
@@ -30,3 +34,15 @@ def test_regression_4():
     assert is_palindrome("abc") is False
     assert is_palindrome("abccba") is True
     assert is_palindrome("abccbb") is False
+
+
+@pytest.mark.repeat(100)
+def test_random_second_max():
+    arr = []
+    for _ in range(100):
+        arr.append(random.randint(1, 100))
+    test_arr = arr.copy()
+    mx = max(arr)
+    arr.remove(mx)
+    
+    assert find_second_max(test_arr) == max(arr)
