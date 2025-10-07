@@ -72,9 +72,7 @@ def print_only_odd_indexes(arr: list[int]) -> None:
 
 
 # 7.
-def find_second_max_recursive(
-    arr: list[int], i: int, max1: int = None, max2: int = None
-) -> int:
+def find_second_max_recursive(arr: list[int], i: int, max1: int, max2: int) -> int:
     if arr[i] > max1:
         max2 = max1
         max1 = arr[i]
@@ -89,6 +87,3 @@ def find_second_max_recursive(
 
 def find_second_max(arr: list[int]) -> int:
     return find_second_max_recursive(arr, 0, min(arr), min(arr))
-
-
-print(find_second_max([21, 2, 3]))
