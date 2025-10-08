@@ -86,4 +86,10 @@ def find_second_max_recursive(arr: list[int], i: int, max1: int, max2: int) -> i
 
 
 def find_second_max(arr: list[int]) -> int:
-    return find_second_max_recursive(arr, 0, min(arr), min(arr))
+    max1 = arr[0]
+    max2 = arr[1]
+    if max2 > max1:
+        max1, max2 = max2, max1
+    if len(arr) == 2:
+        return max2
+    return find_second_max_recursive(arr, 2, max1, max2)
