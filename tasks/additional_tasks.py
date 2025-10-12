@@ -1,3 +1,6 @@
+import os
+
+
 # 0.
 def factorial(N: int) -> int:
     if N == 1:
@@ -93,3 +96,24 @@ def find_second_max(arr: list[int]) -> int:
     if len(arr) == 2:
         return max2
     return find_second_max_recursive(arr, 2, max1, max2)
+
+
+# 8.
+def find_all_files_recursive(path: str, dirs: list[str], ans: list[str]) -> list[str]:
+    new_dirs = os.listdir(path)
+
+    for i in new_dirs:
+        new_path = f"{path}/{i}"
+        if os.path.isdir(new_path):
+            dirs.append(new_path)
+        elif os.path.isfile(new_path):
+            ans.append(new_path)
+
+    if dirs == []:
+        return ans
+
+    return find_all_files_recursive(dirs.pop(), dirs, ans)
+
+
+def find_all_files(path: str) -> list[str]:
+    return find_all_files_recursive(path, [], [])
