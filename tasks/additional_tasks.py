@@ -99,21 +99,15 @@ def find_second_max(arr: list[int]) -> int:
 
 
 # 8.
-def find_all_files_recursive(path: str, dirs: list[str], ans: list[str]) -> list[str]:
+def find_all_files(path: str) -> list[str]:
+    ans = []
     new_dirs = os.listdir(path)
 
     for i in new_dirs:
         new_path = f"{path}/{i}"
         if os.path.isdir(new_path):
-            dirs.append(new_path)
+            ans.extend(find_all_files(new_path))
         elif os.path.isfile(new_path):
             ans.append(new_path)
 
-    if dirs == []:
-        return ans
-
-    return find_all_files_recursive(dirs.pop(), dirs, ans)
-
-
-def find_all_files(path: str) -> list[str]:
-    return find_all_files_recursive(path, [], [])
+    return ans
