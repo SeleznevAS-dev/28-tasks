@@ -138,5 +138,3 @@ def generate_parens(count: int) -> list[str]:
 
     generate_parens_recursive([], 0, 0)
     return ans
-
-print(generate_parens(3))
