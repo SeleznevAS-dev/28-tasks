@@ -7,6 +7,7 @@ from tasks.additional_tasks import sum_numbers
 from tasks.additional_tasks import list_len
 from tasks.additional_tasks import is_palindrome
 from tasks.additional_tasks import find_second_max
+from tasks.additional_tasks import generate_parens
 
 
 def test_regression_0():
@@ -44,5 +45,11 @@ def test_random_second_max():
     test_arr = arr.copy()
     mx = max(arr)
     arr.remove(mx)
-    
+
     assert find_second_max(test_arr) == max(arr)
+
+
+def test_regression_5():
+    assert generate_parens(1) == ["()"]
+    assert generate_parens(2) == ["(())", "()()"]
+    assert generate_parens(3) == ["((()))", "(()())", "(())()", "()(())", "()()()"]
