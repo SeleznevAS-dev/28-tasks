@@ -111,3 +111,32 @@ def find_all_files(path: str) -> list[str]:
             ans.append(new_path)
 
     return ans
+
+
+# 9.
+def generate_parens(count: int) -> list[str]:
+    ans = []
+
+    def generate_parens_recursive(
+        combination: list[str],
+        left_count: int,
+        right_count: int,
+    ) -> list[str]:
+        if len(combination) == 2 * count:
+            ans.append("".join(combination))
+            return
+
+        if left_count < count:
+            combination.append("(")
+            generate_parens_recursive(combination, left_count + 1, right_count)
+            combination.pop()
+
+        if right_count < left_count:
+            combination.append(")")
+            generate_parens_recursive(combination, left_count, right_count + 1)
+            combination.pop()
+
+    generate_parens_recursive([], 0, 0)
+    return ans
+
+print(generate_parens(3))
